@@ -5,14 +5,16 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-Type=notify
-User=consul
-Group=consul
-ExecStart=/bin/bash -c "{{consul_bin}} agent -config-dir={{consul_config_dir}} -datacenter $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone/ | rev | cut -c2- | rev)"
+Type={{consul_service_file_type}}
+User={{consul_user}}
+Group={{consul_group}}
+ExecStart={{consul_bin}} agent {{consul_daemon_options}}
 ExecReload={{consul_bin}} reload
-KillMode=process
-Restart=on-failure
-LimitNOFILE=65536
+KillMode={{consul_service_file_kill_mode}}
+Restart={{consul_service_file_restart}}
+RestartSec={{consul_service_file_restart_sec}}
+LimitNOFILE={{consul_service_file_limit_no_file}}
+TimeoutStopSec={{consul_service_file_timeout_stop_sec}}
 
 [Install]
 WantedBy=multi-user.target
