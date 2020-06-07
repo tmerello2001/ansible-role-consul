@@ -1,7 +1,9 @@
 ---
 
-- name: daemon reload
+- name: systemd reload
   systemd:
+    name: consul
+    state: restarted
     daemon_reload: yes
 
 - name: consul start
