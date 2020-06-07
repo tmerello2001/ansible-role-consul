@@ -1,5 +1,9 @@
 ---
 
+- name: daemon reload
+  systemd:
+    daemon_reload: yes
+
 - name: consul start
   service:
     name: consul
