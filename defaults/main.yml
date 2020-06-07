@@ -73,7 +73,7 @@ consul_systemd_limit_no_file: 65536
 # (/etc/default/consul or /etc/sysconfig/consul)
 #
 #consul_daemon_options: "-join some.server.bar"
-# consul_daemon_options: "-config-dir={{consul_config_dir}}"
+consul_daemon_options: "-config-dir={{consul_config_dir}}"
 
 # Consul config
 # consul_config is a hash where the item key represents the
