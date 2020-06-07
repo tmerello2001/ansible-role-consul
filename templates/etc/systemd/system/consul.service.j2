@@ -5,16 +5,16 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-Type={{consul_service_file_type}}
+Type={{consul_systemd_type}}
 User={{consul_user}}
 Group={{consul_group}}
-ExecStart={{consul_bin}} agent {{consul_daemon_options}}
+ExecStart={{consul_systemd_exec_command}}
 ExecReload={{consul_bin}} reload
-KillMode={{consul_service_file_kill_mode}}
-Restart={{consul_service_file_restart}}
-RestartSec={{consul_service_file_restart_sec}}
-LimitNOFILE={{consul_service_file_limit_no_file}}
-TimeoutStopSec={{consul_service_file_timeout_stop_sec}}
+KillMode={{consul_systemd_kill_mode}}
+Restart={{consul_systemd_restart}}
+RestartSec={{consul_systemd_restart_sec}}
+LimitNOFILE={{consul_systemd_limit_no_file}}
+TimeoutStopSec={{consul_systemd_timeout_stop_sec}}
 
 [Install]
 WantedBy=multi-user.target

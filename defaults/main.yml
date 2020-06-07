@@ -60,19 +60,20 @@ consul_logrotate_config: |
 consul_config_dir: /etc/consul.d
 consul_data_dir: /var/consul
 
-# Consul service file
-consul_service_file_type: notify
-consul_service_file_kill_mode: process
-consul_service_file_restart: on-failure
-consul_service_file_restart_sec: 10s
-consul_service_file_timeout_stop_sec: 5
-consul_service_file_limit_no_file: 65536
+# Consul systemd unit file
+consul_systemd_type: notify
+consul_systemd_exec_command: "{{consul_bin}} agent {{consul_daemon_options}}"
+consul_systemd_kill_mode: process
+consul_systemd_restart: on-failure
+consul_systemd_restart_sec: 10s
+consul_systemd_timeout_stop_sec: 5
+consul_systemd_limit_no_file: 65536
 
 # Daemon options to be passed through consul options file
 # (/etc/default/consul or /etc/sysconfig/consul)
 #
 #consul_daemon_options: "-join some.server.bar"
-consul_daemon_options: "-config-dir={{consul_config_dir}}"
+# consul_daemon_options: "-config-dir={{consul_config_dir}}"
 
 # Consul config
 # consul_config is a hash where the item key represents the
