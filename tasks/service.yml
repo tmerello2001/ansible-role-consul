@@ -23,5 +23,5 @@
   service:
     name: consul
     enabled: yes
-    state: "{{ (consul_started) | ternary('started', 'stopped')}}"
+    state: "{{ (consul_started|bool) | ternary('started', 'stopped')}}"
   when: consul_start_at_boot
