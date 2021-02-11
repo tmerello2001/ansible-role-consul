@@ -10,7 +10,7 @@ consul_create_user: true
 consul_version: 0.9.0
 
 consul_bin:  /usr/local/bin/consul
-consul_dest: "/opt/consul/{{consul_version}}"
+consul_dest: "/opt/consul/{{ consul_version }}"
 
 # get_url validate_certs
 # In case you are running on an old python version
@@ -24,14 +24,14 @@ consul_arch:
   aarch64: "arm64" # Arm64
 
 consul_package:  "consul_{{ consul_version }}_linux_{{ consul_arch[ansible_architecture] }}.zip"
-consul_base_url: "https://releases.hashicorp.com/consul/{{consul_version}}"
-consul_url:      "{{consul_base_url}}/{{consul_package}}"
+consul_base_url: "https://releases.hashicorp.com/consul/{{ consul_version }}"
+consul_url:      "{{ consul_base_url }}/{{ consul_package }}"
 consul_package_dest: /usr/local/src
 
 # UI package
-consul_ui_package: "consul_{{consul_version}}_web_ui.zip"
-consul_ui_url:     "{{consul_base_url}}/{{consul_ui_package}}"
-consul_ui_package_dest: "{{consul_package_dest}}"
+consul_ui_package: "consul_{{ consul_version }}_web_ui.zip"
+consul_ui_url:     "{{ consul_base_url }}/{{ consul_ui_package }}"
+consul_ui_package_dest: "{{ consul_package_dest }}"
 
 consul_ui_dir: /opt/consul/ui
 
@@ -51,7 +51,7 @@ consul_started: true
 consul_logrotate_enabled: false
 consul_logrotate_config: |
   /var/log/consul {
-    create 0644 {{consul_user}} {{consul_group}}
+    create 0644 {{ consul_user }} {{ consul_group }}
     daily
     rotate 7
     copytruncate
@@ -66,7 +66,7 @@ consul_data_dir: /var/consul
 
 # Consul systemd unit file
 consul_systemd_type: notify
-consul_systemd_exec_command: "{{consul_bin}} agent {{consul_daemon_options}}"
+consul_systemd_exec_command: "{{ consul_bin }} agent {{ consul_daemon_options }}"
 consul_systemd_kill_mode: process
 consul_systemd_restart: on-failure
 consul_systemd_restart_sec: 10s
@@ -77,7 +77,7 @@ consul_systemd_limit_no_file: 65536
 # (/etc/default/consul or /etc/sysconfig/consul)
 #
 #consul_daemon_options: "-join some.server.bar"
-consul_daemon_options: "-config-dir={{consul_config_dir}}"
+consul_daemon_options: "-config-dir={{ consul_config_dir }}"
 
 # Consul config
 # consul_config is a hash where the item key represents the

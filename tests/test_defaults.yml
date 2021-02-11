@@ -12,10 +12,10 @@
           "bootstrap_expect": 1,
           "domain": "test",
           "datacenter": "vagrant",
-          "bind_addr": "{{ansible_default_ipv4.address}}",
-          "retry_join": ["{{ansible_default_ipv4.address}}"],
+          "bind_addr": "{{ ansible_default_ipv4.address }}",
+          "retry_join": ["{{ ansible_default_ipv4.address }}"],
           "log_level": "info",
-          "data_dir": "{{consul_data_dir}}",
+          "data_dir": "{{ consul_data_dir }}",
           "enable_syslog": true
 
   roles:
