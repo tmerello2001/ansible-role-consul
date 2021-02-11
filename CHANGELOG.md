@@ -1,5 +1,9 @@
 # Changelog
 
+## 2020-11-04:
+
+  - Add systemd support
+
 ## 2018-02-21: 0.9.2:
 
   - Add logrotate configuration using `consul_logrotate_config` var, and

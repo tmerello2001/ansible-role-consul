@@ -21,20 +21,7 @@
 - include: config.yml
   tags: consul_config
 
-- name: Consul Init Script
-  template:
-    src: "etc/init.d/consul.{{ansible_os_family}}.j2"
-    dest: /etc/init.d/consul
-    owner: root
-    group: root
-    mode: "0755"
-  tags: consul_initscript
-
-- name: Enable Consul at boot
-  service:
-    name: consul
-    enabled: yes
-    state: "{{ (consul_started) | ternary('started', 'stopped')}}"
-  when: consul_start_at_boot
+- include: service.yml
+  tags: consul_service
 
 # vi:ts=2:sw=2:et:ft=yaml
