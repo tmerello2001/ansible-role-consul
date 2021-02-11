@@ -18,8 +18,12 @@ consul_dest: "/opt/consul/{{consul_version}}"
 # an error like 'Failed to validate the SSL certificate'
 consul_download_validate_certs: true
 
-consul_arch:     "{{ (ansible_architecture == 'x86_64') | ternary('amd64', 'i386') }}"
-consul_package:  "consul_{{consul_version}}_linux_{{consul_arch}}.zip"
+consul_arch:
+  x86_64:  "amd64" # 64-bit
+  i386:    "386"  # 32-bit
+  aarch64: "arm64" # Arm64
+
+consul_package:  "consul_{{ consul_version }}_linux_{{ consul_arch[ansible_architecture] }}.zip"
 consul_base_url: "https://releases.hashicorp.com/consul/{{consul_version}}"
 consul_url:      "{{consul_base_url}}/{{consul_package}}"
 consul_package_dest: /usr/local/src

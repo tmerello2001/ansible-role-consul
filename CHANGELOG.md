@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-02-11:
+
+  - Add Arm64 support
+
 ## 2020-11-04:
 
   - Add systemd support

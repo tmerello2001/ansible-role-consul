@@ -6,8 +6,9 @@ FIXME WIP
 
   * EL / Centos (7)
   * Debian (Jessie)
-  * Ubuntu (Trusty)
-  * AMZ Linux
+  * Ubuntu (Focal - x86_64/Arm64)
+  * AMZ Linux (x86_64)
+  * AMZ Linux 2 (x86_64/Arm64)
 
 ## Role Variables
 
