@@ -72,6 +72,8 @@ consul_systemd_restart: on-failure
 consul_systemd_restart_sec: 10s
 consul_systemd_timeout_stop_sec: 5
 consul_systemd_limit_no_file: 65536
+consul_systemd_stdout: syslog
+consul_systemd_stderr: syslog
 
 # Daemon options to be passed through consul options file
 # (/etc/default/consul or /etc/sysconfig/consul)

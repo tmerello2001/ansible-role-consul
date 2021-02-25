@@ -3,6 +3,8 @@ Description="HashiCorp Consul - A service mesh solution"
 Documentation=https://www.consul.io/
 Requires=network-online.target
 After=network-online.target
+StandardOutput={{ consul_systemd_stdout }}
+StandardError={{ consul_systemd_stderr }}
 
 [Service]
 Type={{ consul_systemd_type }}
