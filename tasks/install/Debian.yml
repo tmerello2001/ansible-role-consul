@@ -2,6 +2,6 @@
 
 - name: Install Consul dependencies (Debian)
   apt:
-    name: "{{consul_packages}}"
+    name: "{{ consul_packages }}"
 
 # vi:ts=2:sw=2:et:ft=yaml
