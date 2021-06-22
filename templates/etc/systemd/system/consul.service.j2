@@ -11,6 +11,7 @@ Type={{ consul_systemd_type }}
 User={{ consul_user }}
 Group={{ consul_group }}
 ExecStart={{ consul_systemd_exec_command }}
+ExecStop={{ consul_systemd_stop_command }}
 ExecReload={{ consul_bin }} reload
 KillMode={{ consul_systemd_kill_mode }}
 Restart={{ consul_systemd_restart }}
